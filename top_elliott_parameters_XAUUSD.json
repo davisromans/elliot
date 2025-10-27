@@ -1,0 +1,140 @@
+{
+    "metadata": {
+        "description": "Top 10 overall properties from multi-threaded backtest. Initial Balance: $10.00.",
+        "total_properties_generated": 10000,
+        "time_elapsed_seconds": 0.516,
+        "output_timestamp": "2025-10-27T12:05:04.643Z"
+    },
+    "top_10_properties": [
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.618,
+            "ew_wave4_pullback_limit": 0.618,
+            "mtf_confirm_period_min": 15,
+            "confirm_rsi_period": 15,
+            "confirm_rsi_entry_threshold": 70.16,
+            "sl_atr_multiplier": 1.6,
+            "simulated_final_balance": 20290.27,
+            "simulated_total_trades": 6,
+            "optimization_score": 10200.14
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.618,
+            "mtf_confirm_period_min": 30,
+            "confirm_rsi_period": 14,
+            "confirm_rsi_entry_threshold": 71.5,
+            "sl_atr_multiplier": 2.4,
+            "simulated_final_balance": 19094.91,
+            "simulated_total_trades": 5,
+            "optimization_score": 9592.46
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.618,
+            "mtf_confirm_period_min": 60,
+            "confirm_rsi_period": 15,
+            "confirm_rsi_entry_threshold": 72.99,
+            "sl_atr_multiplier": 2.3,
+            "simulated_final_balance": 18312.82,
+            "simulated_total_trades": 5,
+            "optimization_score": 9201.41
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.5,
+            "ew_wave4_pullback_limit": 0.5,
+            "mtf_confirm_period_min": 30,
+            "confirm_rsi_period": 15,
+            "confirm_rsi_entry_threshold": 72.95,
+            "sl_atr_multiplier": 1.7,
+            "simulated_final_balance": 17758.35,
+            "simulated_total_trades": 5,
+            "optimization_score": 8924.17
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.5,
+            "ew_wave4_pullback_limit": 0.618,
+            "mtf_confirm_period_min": 240,
+            "confirm_rsi_period": 15,
+            "confirm_rsi_entry_threshold": 71.77,
+            "sl_atr_multiplier": 1.7,
+            "simulated_final_balance": 17758.35,
+            "simulated_total_trades": 5,
+            "optimization_score": 8924.17
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.618,
+            "mtf_confirm_period_min": 5,
+            "confirm_rsi_period": 16,
+            "confirm_rsi_entry_threshold": 71.08,
+            "sl_atr_multiplier": 2.2,
+            "simulated_final_balance": 17401.08,
+            "simulated_total_trades": 3,
+            "optimization_score": 8725.54
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.5,
+            "mtf_confirm_period_min": 240,
+            "confirm_rsi_period": 15,
+            "confirm_rsi_entry_threshold": 70.73,
+            "sl_atr_multiplier": 2.1,
+            "simulated_final_balance": 16721.18,
+            "simulated_total_trades": 5,
+            "optimization_score": 8405.59
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.618,
+            "mtf_confirm_period_min": 15,
+            "confirm_rsi_period": 15,
+            "confirm_rsi_entry_threshold": 70.63,
+            "sl_atr_multiplier": 1.9,
+            "simulated_final_balance": 15129.53,
+            "simulated_total_trades": 5,
+            "optimization_score": 7609.77
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.382,
+            "mtf_confirm_period_min": 15,
+            "confirm_rsi_period": 16,
+            "confirm_rsi_entry_threshold": 71.37,
+            "sl_atr_multiplier": 1.9,
+            "simulated_final_balance": 15029.47,
+            "simulated_total_trades": 3,
+            "optimization_score": 7539.73
+        },
+        {
+            "instrument": "XAUUSD",
+            "timeframe_min": 5,
+            "ew_wave5_target_ratio": 0.382,
+            "ew_wave4_pullback_limit": 0.382,
+            "mtf_confirm_period_min": 15,
+            "confirm_rsi_period": 16,
+            "confirm_rsi_entry_threshold": 73.31,
+            "sl_atr_multiplier": 1.9,
+            "simulated_final_balance": 14963.55,
+            "simulated_total_trades": 2,
+            "optimization_score": 7496.77
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Node.js Super Backtesting Report</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+        <style>
+            body { font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa; }
+            .container { max-width: 1400px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+            h1 { color: #007bff; border-bottom: 3px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; }
+            h2 { color: #343a40; margin-top: 30px; border-left: 5px solid #ffc107; padding-left: 10px; }
+            .grid-container { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+            .metrics-table table { width: 100%; border-collapse: collapse; }
+            .metrics-table td { padding: 8px; border-bottom: 1px solid #ddd; }
+            .metrics-table b { font-weight: bold; color: #000; }
+            .trade-table-wrapper { margin-top: 20px; overflow-x: auto; max-height: 500px; }
+            .trade-table table { width: 100%; border-collapse: collapse; }
+            .trade-table th, .trade-table td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 14px; }
+            .trade-table th { background-color: #007bff; color: white; position: sticky; top: 0; }
+            .status-TP { background-color: #d4edda; color: #155724; }
+            .status-SL { background-color: #f8d7da; color: #721c24; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>XAUUSD Super Backtesting Report 🚀</h1>
+            <p>**Optimization Method:** Multi-threaded (MP) search for max trades/profit balance.</p>
+
+            <div class="grid-container">
+                <div class="metrics-area">
+                    <h2>Key Performance Indicators (KPIs)</h2>
+                    <div class="metrics-table"><table><tr><td><b>Initial Balance</b></td><td>$10.00</td></tr><tr><td><b>Final Balance</b></td><td>$20290.28</td></tr><tr><td><b>Net Profit</b></td><td>$20280.28</td></tr><tr><td><b>Total Trades</b></td><td>6</td></tr><tr><td><b>Win Rate</b></td><td>83.33%</td></tr><tr><td><b>Profit Factor</b></td><td>50.50</td></tr><tr><td><b>Gross Profit</b></td><td>$20689.99</td></tr><tr><td><b>Gross Loss</b></td><td>$409.71</td></tr><tr><td><b>Max Drawdown (USD)</b></td><td>$409.71</td></tr><tr><td><b>Max Drawdown (%)</b></td><td>2.00%</td></tr><tr><td><b>Date Range</b></td><td>2025-10-26 to 2025-10-27</td></tr></table></div>
+                </div>
+                <div class="chart-area">
+                    <h2>Equity Curve</h2>
+                    <canvas id="equityChart"></canvas>
+                </div>
+            </div>
+
+            <h2>Detailed Trade History (6 Trades)</h2>
+            <div class="trade-table-wrapper">
+                <div class="trade-table">
+                    <table><thead><tr><th>Status</th><th>Type</th><th>Lots</th><th>Exit Time</th><th>Entry Price</th><th>Exit Price</th><th>PnL (USD)</th><th>Running Balance</th></tr></thead><tbody><tr>
+            <td class="status-TP">TP</td>
+            <td>SHORT</td>
+            <td>0.01</td>
+            <td>10/27/2025, 1:30:00 AM</td>
+            <td>4093.61900</td>
+            <td>4088.45263</td>
+            <td>$51.59</td>
+            <td>$61.59</td>
+        </tr><tr>
+            <td class="status-TP">TP</td>
+            <td>SHORT</td>
+            <td>0.01</td>
+            <td>10/27/2025, 1:35:00 AM</td>
+            <td>4093.44100</td>
+            <td>4084.51521</td>
+            <td>$89.19</td>
+            <td>$150.78</td>
+        </tr><tr>
+            <td class="status-TP">TP</td>
+            <td>SHORT</td>
+            <td>0.01</td>
+            <td>10/27/2025, 1:40:00 AM</td>
+            <td>4088.00300</td>
+            <td>4079.61314</td>
+            <td>$83.83</td>
+            <td>$234.61</td>
+        </tr><tr>
+            <td class="status-TP">TP</td>
+            <td>SHORT</td>
+            <td>0.01</td>
+            <td>10/27/2025, 5:15:00 AM</td>
+            <td>4087.14700</td>
+            <td>2065.31809</td>
+            <td>$20218.22</td>
+            <td>$20452.83</td>
+        </tr><tr>
+            <td class="status-SL">SL</td>
+            <td>SHORT</td>
+            <td>0.04</td>
+            <td>10/27/2025, 6:05:00 AM</td>
+            <td>4074.21000</td>
+            <td>4084.82640</td>
+            <td>$-409.71</td>
+            <td>$20043.12</td>
+        </tr><tr>
+            <td class="status-TP">TP</td>
+            <td>SHORT</td>
+            <td>0.03</td>
+            <td>10/27/2025, 7:10:00 AM</td>
+            <td>4077.88700</td>
+            <td>4070.59471</td>
+            <td>$247.16</td>
+            <td>$20290.28</td>
+        </tr></tbody></table>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script>
+            const ctx = document.getElementById('equityChart').getContext('2d');
+            const labels = ["10/27/2025, 1:30:00 AM","10/27/2025, 1:35:00 AM","10/27/2025, 1:40:00 AM","10/27/2025, 5:15:00 AM","10/27/2025, 6:05:00 AM","10/27/2025, 7:10:00 AM"];
+            const data = [61.59,150.78,234.61,20452.83,20043.120000000003,20290.280000000002];
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Running Equity',
+                        data: data,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1,
+                        fill: false,
+                        pointRadius: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                        title: { display: true, text: 'Equity Curve Over Time' }
+                    },
+                    scales: {
+                        x: { display: true, title: { display: true, text: 'Exit Time' } },
+                        y: { display: true, title: { display: true, text: 'Balance (USD)' } }
+                    }
+                }
+            });
+        </script>
+    </body>
+    </html>
+    
